@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class ApiService {
   static Future<List<ResultMuscle>> fetchMuscle() async {
-    final api = "https://064ba9762517.ngrok.io/";
+    final api = "http://aac38798b8f0.ngrok.io/";
     final response = await http.get("${api}muscle/");
     print(response);
     if (response.statusCode == 200) {

@@ -15,49 +15,58 @@ class _HomePageState extends State<HomePage> {
   Future<List<ResultMuscle>> _muscle = ApiService.fetchMuscle();
 
   Widget build(BuildContext context) {
-    return DefaultTextStyle(
-      style: Theme.of(context).textTheme.headline2,
-      textAlign: TextAlign.center,
-      child: FutureBuilder<List<ResultMuscle>>(
-        future: _muscle, // a previously-obtained Future<String> or null
-        builder:
-            (BuildContext context, AsyncSnapshot<List<ResultMuscle>> snapshot) {
-          List<Widget> children;
-          if (snapshot.hasError) {
-            children = <Widget>[
-              Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 60,
-              )
-            ];
-          } else {
-            children = <Widget>[
-              Center(
-                child: SizedBox(
-                  child: CircularProgressIndicator(),
-                  width: 60,
-                  height: 60,
-                ),
-              )
-            ];
-          }
-          return Center(
-            child: snapshot.hasData
-                ? MuscleGridView(
-                    data: snapshot.data,
-                  )
-                : Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: children,
-                    ),
-                  ),
-          );
-        },
+    return Scaffold(
+        body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/muscle-background.jpeg"),
+          fit: BoxFit.fill,
+        ),
       ),
-    );
+      child: DefaultTextStyle(
+        style: Theme.of(context).textTheme.headline2,
+        textAlign: TextAlign.center,
+        child: FutureBuilder<List<ResultMuscle>>(
+          future: _muscle,
+          builder: (BuildContext context,
+              AsyncSnapshot<List<ResultMuscle>> snapshot) {
+            List<Widget> children;
+            if (snapshot.hasError) {
+              children = <Widget>[
+                Icon(
+                  Icons.error_outline,
+                  color: Colors.red,
+                  size: 60,
+                )
+              ];
+            } else {
+              children = <Widget>[
+                Center(
+                  child: SizedBox(
+                    child: CircularProgressIndicator(),
+                    width: 60,
+                    height: 60,
+                  ),
+                )
+              ];
+            }
+            return Center(
+              child: snapshot.hasData
+                  ? MuscleGridView(
+                      data: snapshot.data,
+                    )
+                  : Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: children,
+                      ),
+                    ),
+            );
+          },
+        ),
+      ),
+    ));
   }
 
   @override
