@@ -6,6 +6,8 @@ import 'package:gym_app/screens/widgets/muscle.dart';
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
 
+  static const routeName = '/';
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -17,12 +19,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/muscle-background.jpeg"),
-          fit: BoxFit.fill,
-        ),
-      ),
+      decoration: BoxDecoration(color: Colors.black),
       child: DefaultTextStyle(
         style: Theme.of(context).textTheme.headline2,
         textAlign: TextAlign.center,
