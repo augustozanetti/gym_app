@@ -8,7 +8,7 @@ class ExecutionPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("test"),
+        title: Text("Execução"),
       ),
       body: Container(alignment: Alignment.center, child: Icon(Icons.alarm)),
     );
