@@ -3,7 +3,7 @@ import 'package:gym_app/models/muscleGroup.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-final api = "http://9e3b72426154.ngrok.io/";
+final api = "http://92d5b7763a6e.ngrok.io/";
 
 class ApiService {
   static Future<List<ResultMuscle>> fetchMuscle() async {

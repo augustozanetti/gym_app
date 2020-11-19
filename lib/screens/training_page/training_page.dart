@@ -73,7 +73,10 @@ class _TrainingPageState extends State<TrainingPage> {
                                   child: const Text('Iniciar'),
                                   onPressed: () {
                                     Navigator.pushNamed(
-                                        context, ExecutionPage.routeName);
+                                        context, ExecutionPage.routeName,
+                                        arguments: ExecutionArguments(
+                                            snapshot.data[index].name,
+                                            snapshot.data[index].videoPath));
                                   },
                                 ),
                               ],
